@@ -4,12 +4,14 @@ struct list_element
 { //IDK type
     void *data;
     struct list_element *next;
+    struct list_element* prev;
 };
 
 void init_list_element(struct list_element* elem)
 {
     elem->data = NULL;
     elem->next = NULL;
+    elem->prev = NULL;
 }
 struct list_element* get_last_list_element(struct list_element* head)
 {
@@ -38,6 +40,7 @@ void add_list_element(struct list_element* head , void* data)
         struct list_element* elem = (struct list_element*) malloc(sizeof(struct list_element));
         init_list_element(elem);
         elem->data = data;
+        elem->prev =last_elem;
         last_elem->next = elem;
 
     }
@@ -70,11 +73,11 @@ int main(int argc, char **argv)
 
 
      
-    struct list_element *cur = &head;
+    struct list_element *cur = get_last_list_element(&head);
     while (cur != NULL)
     {
         printf("%s\n", (const char *)cur->data);
-        cur = cur->next;
+        cur = cur->prev;
     }
     //clean up memory
     destruct_list(&head);
