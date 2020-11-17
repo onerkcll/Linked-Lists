@@ -33,7 +33,7 @@ void add_list_element(struct list_element* head , void* data)
         head->data = data;
     }
     else
-    {   
+    {   //control
         struct list_element* last_elem = get_last_list_element(head);
         struct list_element* elem = (struct list_element*) malloc(sizeof(struct list_element));
         init_list_element(elem);
