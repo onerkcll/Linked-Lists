@@ -27,7 +27,7 @@ struct list_element *get_last_list_element(struct list_element *head)
     return cur;
 }
 void remove_list_element(struct list_element* elem)
-{   //exmp: 3->2->3 = 2->4 it'll pass 3 
+{   //exmp: 3->2->3 = 2->4 it'll pass 3 as
     elem->prev->next = elem->next;
     //elem = us
     // elem->prev = element previous to us 
